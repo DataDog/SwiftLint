@@ -1,0 +1,37 @@
+# This workflow will build a Swift project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
+
+name: Update and instrument tests
+
+on:
+  schedule:
+  - cron: 0 2 * * 1-5
+  workflow_dispatch:
+
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Add upstream
+      run: git remote add upstream https://github.com/realm/SwiftLint.git
+      
+    - name: We dont want to rebase
+      run: git config pull.rebase false
+
+    - name: Merge upstream
+      run: git pull --allow-unrelated-histories upstream main
+
+    - name: Run tests with Datadog 
+      uses: Datadog/swift-test-action@v1
+      with:
+          api_key: ${{ secrets.DD_API_KEY }}
+          application_key: ${{ secrets.DD_APPLICATION_KEY }}
+          platform: macos
+          libraryVersion: 2.2.0-rc.4
+      env: 
+          DD_TRACE_DEBUG: "1"
