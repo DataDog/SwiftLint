@@ -2,7 +2,15 @@
 
 #### Breaking
 
-* None.
+* Deprecate the `unused_capture_list` rule in favor of the Swift compiler
+  warning. At the same time, make it an opt-in rule.  
+  [Cyberbeni](https://github.com/Cyberbeni)
+  [#4656](https://github.com/realm/SwiftLint/issues/4656)
+
+* Deprecate the `inert_defer` rule in favor of the Swift compiler warning.
+  At the same time, make it an opt-in rule.  
+  [SimplyDanny](https://github.com/SimplyDanny)
+  [#4615](https://github.com/realm/SwiftLint/issues/4615)
 
 #### Experimental
 
@@ -10,11 +18,21 @@
 
 #### Enhancements
 
-* None.
+* Make forceExclude work with directly specified files.  
+  [jimmya](https://github.com/jimmya)
+  [#issue_number](https://github.com/realm/SwiftLint/issues/4609)
 
 #### Bug Fixes
 
-* None.
+* Fix false positives on `private_subject` rule when using
+  subjects inside functions.  
+  [Marcelo Fabri](https://github.com/marcelofabri)
+  [#4643](https://github.com/realm/SwiftLint/issues/4643)
+
+* Fix for compiler directives masking subsequent `opening_brace`
+  violations.  
+  [Martin Redington](https://github.com/mildm8nnered)
+  [#3712](https://github.com/realm/SwiftLint/issues/3712)
 
 ## 0.50.3: Bundle of Towels
 
@@ -49,11 +67,21 @@
   `single_test_class` and `empty_xctest_method` rules.  
   [Martin Redington](https://github.com/mildm8nnered)
   [#4200](https://github.com/realm/SwiftLint/issues/4200)
+  
+  * Add `period_spacing` opt-in rule that checks periods are not followed
+  by 2 or more spaces in comments.  
+  [Julioacarrettoni](https://github.com/Julioacarrettoni)
+  [#4624](https://github.com/realm/SwiftLint/pull/4624)
 
 * Show warnings in the console for Analyzer rules that are listed in the
   `opt_in_rules` configuration section.  
   [SimplyDanny](https://github.com/SimplyDanny)
   [#4612](https://github.com/realm/SwiftLint/issues/4612)
+
+* Allow new Quick APIs `aroundEach` and `justBeforeEach`
+  for `quick_discouraged_call`.  
+  [David Steinacher](https://github.com/stonko1994)
+  [#4626](https://github.com/realm/SwiftLint/issues/4626)
 
 #### Bug Fixes
 
