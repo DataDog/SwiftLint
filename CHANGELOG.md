@@ -22,7 +22,16 @@
   [jimmya](https://github.com/jimmya)
   [#issue_number](https://github.com/realm/SwiftLint/issues/4609)
 
+* Separate analyzer rules as an independent section in the rule directory of the reference.  
+  [Ethan Wong](https://github.com/GetToSet)
+  [#4664](https://github.com/realm/SwiftLint/pull/4664)
+
 #### Bug Fixes
+
+* Report violations in all `<scope>_length` rules when the error threshold is
+  smaller than the warning threshold.  
+  [SimplyDanny](https://github.com/SimplyDanny)
+  [#4645](https://github.com/realm/SwiftLint/issues/4645)
 
 * Fix false positives on `private_subject` rule when using
   subjects inside functions.  
@@ -33,6 +42,11 @@
   violations.  
   [Martin Redington](https://github.com/mildm8nnered)
   [#3712](https://github.com/realm/SwiftLint/issues/3712)
+
+* Rewrite `explicit_type_interface` rule with SwiftSyntax fixing a
+  false-positive in if-case-let statements.  
+  [SimplyDanny](https://github.com/SimplyDanny)
+  [#4548](https://github.com/realm/SwiftLint/issues/4548)
 
 ## 0.50.3: Bundle of Towels
 
