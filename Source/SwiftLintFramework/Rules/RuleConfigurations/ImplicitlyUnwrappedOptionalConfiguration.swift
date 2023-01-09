@@ -23,8 +23,8 @@ struct ImplicitlyUnwrappedOptionalConfiguration: SeverityBasedRuleConfiguration,
     }
 
     var consoleDescription: String {
-        return severityConfiguration.consoleDescription +
-            ", mode: \(mode)"
+        return "severity: \(severityConfiguration.consoleDescription)" +
+            ", mode: \(mode.rawValue)"
     }
 
     mutating func apply(configuration: Any) throws {
