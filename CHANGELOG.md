@@ -22,9 +22,15 @@
   [jimmya](https://github.com/jimmya)
   [#issue_number](https://github.com/realm/SwiftLint/issues/4609)
 
-* Separate analyzer rules as an independent section in the rule directory of the reference.  
+* Separate analyzer rules as an independent section in the rule directory of
+  the reference.  
   [Ethan Wong](https://github.com/GetToSet)
   [#4664](https://github.com/realm/SwiftLint/pull/4664)
+  
+* Interpret strings in `excluded` option of `identifier_name`, 
+  `type_name` and `generic_type_name` rules as regex.  
+  [Moly](https://github.com/kyounh12)
+  [#4655](https://github.com/realm/SwiftLint/pull/4655)
 
 #### Bug Fixes
 
@@ -47,6 +53,11 @@
   false-positive in if-case-let statements.  
   [SimplyDanny](https://github.com/SimplyDanny)
   [#4548](https://github.com/realm/SwiftLint/issues/4548)
+  
+* Ensure that negative literals in initializers do not trigger
+  `no_magic_numbers` rule.  
+  [SimplyDanny](https://github.com/SimplyDanny)
+  [#4677](https://github.com/realm/SwiftLint/issues/4677)
 
 ## 0.50.3: Bundle of Towels
 
