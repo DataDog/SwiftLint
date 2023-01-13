@@ -20,6 +20,7 @@ jobs:
           api_key: ${{ secrets.DD_API_KEY_STAGING }}
           application_key: ${{ secrets.DD_APPLICATION_KEY_STAGING }}
           platform: macos
+          libraryVersion: 2.1.0
       env: 
           DD_TRACE_DEBUG: "1"
           DD_SITE: "staging"
