@@ -34,4 +34,4 @@ jobs:
           platform: macos
           libraryVersion: 2.2.2-beta.2
       env: 
-          DD_TRACE_DEBUG: "1"
+          DD_TRACE_DEBUG: 1
