@@ -371,12 +371,21 @@ Once [installed](https://pre-commit.com/#install), add this to the
 ```yaml
 repos:
   - repo: https://github.com/realm/SwiftLint
-    rev: 0.44.0
+    rev: 0.50.3
     hooks:
       - id: swiftlint
 ```
 
-Adjust `rev` to the SwiftLint version of your choice.
+Adjust `rev` to the SwiftLint version of your choice.  `pre-commit autoupdate` can be used to update to the current version.
+
+SwiftLint can be configured using `entry` to apply fixes and fail on errors:
+```yaml
+-   repo: https://github.com/realm/SwiftLint
+    rev: 0.50.3
+    hooks:
+    -   id: swiftlint
+        entry: swiftlint --fix --strict
+```
 
 ## Rules
 
@@ -487,6 +496,9 @@ opt_in_rules: # some rules are turned off by default, so you need to opt-in
 #   - empty_parameters
 #   - vertical_whitespace
 
+analyzer_rules: # Rules run by `swiftlint analyze`
+  - explicit_self
+
 included: # paths to include during linting. `--path` is ignored if present.
   - Source
 excluded: # paths to ignore during linting. Takes precedence over `included`.
@@ -495,8 +507,9 @@ excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Source/ExcludedFolder
   - Source/ExcludedFile.swift
   - Source/*/ExcludedFile.swift # Exclude files with a wildcard
-analyzer_rules: # Rules run by `swiftlint analyze`
-  - explicit_self
+
+# If true, SwiftLint will not fail if no lintable files are found.
+allow_zero_lintable_files: false
 
 # configurable rules can be customized from this configuration file
 # binary rules can set their severity level
