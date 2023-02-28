@@ -72,8 +72,8 @@ struct IdenticalOperandsRule: ConfigurationProviderRule, SwiftSyntaxRule, OptInR
         ]
     )
 
-    func preprocess(syntaxTree: SourceFileSyntax) -> SourceFileSyntax? {
-        syntaxTree.folded()
+    func preprocess(file: SwiftLintFile) -> SourceFileSyntax? {
+        file.foldedSyntaxTree
     }
 
     func makeVisitor(file: SwiftLintFile) -> ViolationsSyntaxVisitor {
@@ -85,7 +85,7 @@ private extension IdenticalOperandsRule {
     final class Visitor: ViolationsSyntaxVisitor {
         override func visitPost(_ node: InfixOperatorExprSyntax) {
             guard let operatorNode = node.operatorOperand.as(BinaryOperatorExprSyntax.self),
-                  IdenticalOperandsRule.operators.contains(operatorNode.operatorToken.withoutTrivia().text) else {
+                  IdenticalOperandsRule.operators.contains(operatorNode.operatorToken.text) else {
                 return
             }
 

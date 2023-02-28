@@ -19,12 +19,13 @@ public protocol SwiftSyntaxRule: SourceKitFreeRule {
 
     /// Gives a chance for the rule to do some pre-processing on the syntax tree.
     /// One typical example is using `SwiftOperators` to "fold" the tree, resolving operators precedence.
-    /// By default, it just returns the same `syntaxTree`.
+    /// This can also be used to skip validation in a given file.
+    /// By default, it just returns the file's `syntaxTree`.
     ///
-    /// - parameter syntaxTree: The syntax tree to run pre-processing on
+    /// - parameter file: The file to run pre-processing on.
     ///
     /// - returns: The tree that will be used to check for violations. If `nil`, this rule will return no violations.
-    func preprocess(syntaxTree: SourceFileSyntax) -> SourceFileSyntax?
+    func preprocess(file: SwiftLintFile) -> SourceFileSyntax?
 }
 
 public extension SwiftSyntaxRule where Self: ConfigurationProviderRule,
@@ -53,7 +54,7 @@ public extension SwiftSyntaxRule {
     }
 
     func validate(file: SwiftLintFile) -> [StyleViolation] {
-        guard let syntaxTree = preprocess(syntaxTree: file.syntaxTree) else {
+        guard let syntaxTree = preprocess(file: file) else {
             return []
         }
 
@@ -79,8 +80,8 @@ public extension SwiftSyntaxRule {
         )
     }
 
-    func preprocess(syntaxTree: SourceFileSyntax) -> SourceFileSyntax? {
-        syntaxTree
+    func preprocess(file: SwiftLintFile) -> SourceFileSyntax? {
+        file.syntaxTree
     }
 }
 

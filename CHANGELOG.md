@@ -18,29 +18,78 @@
 
 #### Enhancements
 
+* Add local links to rule descriptions to every rule listed
+  in `Rule Directory.md`.  
+  [kattouf](https://github.com/kattouf)
+
 * Make forceExclude work with directly specified files.  
   [jimmya](https://github.com/jimmya)
-  [#issue_number](https://github.com/realm/SwiftLint/issues/4609)
+  [#4609](https://github.com/realm/SwiftLint/issues/4609)
 
 * Separate analyzer rules as an independent section in the rule directory of
   the reference.  
   [Ethan Wong](https://github.com/GetToSet)
   [#4664](https://github.com/realm/SwiftLint/pull/4664)
-  
+
+* Add rule identifier to output of Emoji reporter.  
+  [SimplyDanny](https://github.com/SimplyDanny)
+  [#4707](https://github.com/realm/SwiftLint/issues/4707)
+
 * Interpret strings in `excluded` option of `identifier_name`, 
   `type_name` and `generic_type_name` rules as regex.  
   [Moly](https://github.com/kyounh12)
   [#4655](https://github.com/realm/SwiftLint/pull/4655)
+
+* Add new `direct_return` rule that triggers on `return` statements returning
+  variables that have been declared in the statement before only.  
+  [SimplyDanny](https://github.com/SimplyDanny)
 
 * Add `period_spacing` opt-in rule that checks periods are not followed
   by 2 or more spaces in comments.  
   [Julioacarrettoni](https://github.com/Julioacarrettoni)
   [#4624](https://github.com/realm/SwiftLint/pull/4624)
 
+* Allow to pass a rule identifier to the `swiftlint docs` command to open its
+  specific documentation website, e.g. `swiftlint docs for_where`.  
+  [SimplyDanny](https://github.com/SimplyDanny)
+  [#4707](https://github.com/realm/SwiftLint/issues/4707)
+
 * Allow new Quick APIs `aroundEach` and `justBeforeEach` for
   `quick_discouraged_call`.  
   [David Steinacher](https://github.com/stonko1994)
   [#4626](https://github.com/realm/SwiftLint/issues/4626)
+
+* Add `relative-path` reporter to generate reports with relative file paths.  
+  [Roya1v](https://github.com/roya1v)
+  [#4660](https://github.com/realm/SwiftLint/issues/4660)
+
+* Let `number_separator` rule trigger on misplaced separators, e.g. `10_00`.  
+  [SimplyDanny](https://github.com/SimplyDanny)
+  [#4637](https://github.com/realm/SwiftLint/issues/4637)
+
+* Rewrite `multiline_arguments` rule using SwiftSyntax, ignoring trailing
+  closures.  
+  [Marcelo Fabri](https://github.com/marcelofabri)
+  [#3399](https://github.com/realm/SwiftLint/issues/3399)
+  [#3605](https://github.com/realm/SwiftLint/issues/3605)
+
+* Speed up linting by up to 6% updating to use a newer version of
+  `SwiftSyntax`.  
+  [JP Simard](https://github.com/jpsim)
+
+* Catch more valid `legacy_multiple` violations.  
+  [JP Simard](https://github.com/jpsim)
+
+* Catch more valid `no_magic_numbers` violations.  
+  [JP Simard](https://github.com/jpsim)
+
+* Improve `identifier_name` documentation.  
+  [Martin Redington](https://github.com/mildm8nnered)
+  [#4767](https://github.com/realm/SwiftLint/issues/4767)
+
+* Adds `include_multiline_strings` option to `indentation_width` rule.  
+  [Martin Redington](https://github.com/mildm8nnered)
+  [#4248](https://github.com/realm/SwiftLint/issues/4248)
 
 #### Bug Fixes
 
@@ -52,6 +101,11 @@
 * Consider custom attributes in `attributes` rule.  
   [SimplyDanny](https://github.com/SimplyDanny)
   [#4599](https://github.com/realm/SwiftLint/issues/4599)
+
+* Stop triggering `strict_fileprivate` rule on symbols implementing a protocol
+  in the same file.  
+  [SimplyDanny](https://github.com/SimplyDanny)
+  [#4692](https://github.com/realm/SwiftLint/issues/4692)
 
 * Fix false positives on `private_subject` rule when using
   subjects inside functions.  
@@ -67,7 +121,7 @@
   false-positive in if-case-let statements.  
   [SimplyDanny](https://github.com/SimplyDanny)
   [#4548](https://github.com/realm/SwiftLint/issues/4548)
-  
+
 * Ensure that negative literals in initializers do not trigger
   `no_magic_numbers` rule.  
   [SimplyDanny](https://github.com/SimplyDanny)
@@ -80,6 +134,18 @@
 * Updated JUnit reporter to output error count and warning count.  
   [patricks](https://github.com/patricks)
   [#4725](https://github.com/realm/SwiftLint/pull/4725)
+
+* Fix correction on `lower_acl_than_parent` rule for `open` declarations.  
+  [Marcelo Fabri](https://github.com/marcelofabri)
+  [#4753](https://github.com/realm/SwiftLint/issues/4753)
+
+* Fix `void_return` rule to support async and async throws functions.  
+  [Mathias Schreck](https://github.com/lo1tuma)
+  [#4772](https://github.com/realm/SwiftLint/issues/4772)
+
+* Fix false positives in `attributes` rule when using property wrappers
+  with keypath arguments.  
+  [JP Simard](https://github.com/jpsim)
 
 ## 0.50.3: Bundle of Towels
 

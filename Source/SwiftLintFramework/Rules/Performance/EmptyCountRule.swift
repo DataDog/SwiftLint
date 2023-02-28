@@ -35,8 +35,8 @@ struct EmptyCountRule: ConfigurationProviderRule, OptInRule, SwiftSyntaxRule {
         ]
     )
 
-    func preprocess(syntaxTree: SourceFileSyntax) -> SourceFileSyntax? {
-        syntaxTree.folded()
+    func preprocess(file: SwiftLintFile) -> SourceFileSyntax? {
+        file.foldedSyntaxTree
     }
 
     func makeVisitor(file: SwiftLintFile) -> ViolationsSyntaxVisitor {
@@ -98,7 +98,7 @@ private extension ExprSyntax {
 private extension TokenSyntax {
     var binaryOperator: String? {
         switch tokenKind {
-        case .spacedBinaryOperator(let str), .unspacedBinaryOperator(let str):
+        case .binaryOperator(let str):
             return str
         default:
             return nil
