@@ -1,10 +1,11 @@
-// Generated using Sourcery 2.0.0 — https://github.com/krzysztofzablocki/Sourcery
+// Generated using Sourcery 2.0.1 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 @_spi(TestHelper)
 @testable import SwiftLintFramework
 import SwiftLintTestHelpers
 import XCTest
 
+// swiftlint:disable:next blanket_disable_command
 // swiftlint:disable file_length single_test_class type_name
 
 class AccessibilityLabelForImageRuleGeneratedTests: XCTestCase {
@@ -46,6 +47,12 @@ class AttributesRuleGeneratedTests: XCTestCase {
 class BalancedXCTestLifecycleRuleGeneratedTests: XCTestCase {
     func testWithDefaultConfiguration() {
         verifyRule(BalancedXCTestLifecycleRule.description)
+    }
+}
+
+class BlanketDisableCommandRuleGeneratedTests: XCTestCase {
+    func testWithDefaultConfiguration() {
+        verifyRule(BlanketDisableCommandRule.description)
     }
 }
 
@@ -238,6 +245,12 @@ class DiscouragedOptionalBooleanRuleGeneratedTests: XCTestCase {
 class DiscouragedOptionalCollectionRuleGeneratedTests: XCTestCase {
     func testWithDefaultConfiguration() {
         verifyRule(DiscouragedOptionalCollectionRule.description)
+    }
+}
+
+class DuplicateConditionsRuleGeneratedTests: XCTestCase {
+    func testWithDefaultConfiguration() {
+        verifyRule(DuplicateConditionsRule.description)
     }
 }
 
@@ -514,6 +527,12 @@ class IndentationWidthRuleGeneratedTests: XCTestCase {
 class InertDeferRuleGeneratedTests: XCTestCase {
     func testWithDefaultConfiguration() {
         verifyRule(InertDeferRule.description)
+    }
+}
+
+class InvalidSwiftLintCommandRuleGeneratedTests: XCTestCase {
+    func testWithDefaultConfiguration() {
+        verifyRule(InvalidSwiftLintCommandRule.description)
     }
 }
 

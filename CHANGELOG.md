@@ -18,6 +18,11 @@
 
 #### Enhancements
 
+* Add `duplicate_conditions` rule which warns when a condition is duplicated
+  in separate branches of the same branching statement (if-else, or switch).  
+  [1in1](https://github.com/1in1)
+  [#4666](https://github.com/realm/SwiftLint/issues/4666)
+
 * Add local links to rule descriptions to every rule listed
   in `Rule Directory.md`.  
   [kattouf](https://github.com/kattouf)
@@ -25,6 +30,11 @@
 * Make forceExclude work with directly specified files.  
   [jimmya](https://github.com/jimmya)
   [#4609](https://github.com/realm/SwiftLint/issues/4609)
+
+* Adds `all` pseudo-rule for `opt_in_rules` - enables all opt in rules
+  that are not listed in `disabled_rules`  
+  [Martin Redington](https://github.com/mildm8nnered)
+  [#4540](https://github.com/realm/SwiftLint/issues/4540)
 
 * Separate analyzer rules as an independent section in the rule directory of
   the reference.  
@@ -83,6 +93,16 @@
 * Catch more valid `no_magic_numbers` violations.  
   [JP Simard](https://github.com/jpsim)
 
+* Add `blanket_disable_command` rule that checks whether
+  rules are re-enabled after being disabled.  
+  [Martin Redington](https://github.com/mildm8nnered)
+  [#4731](https://github.com/realm/SwiftLint/pull/4731)
+
+* Add `invalid_swiftlint_command` rule that validates
+  `// swiftlint:enable` and `disable` commands.  
+  [Martin Redington](https://github.com/mildm8nnered)
+  [#4546](https://github.com/realm/SwiftLint/pull/4546)
+
 * Improve `identifier_name` documentation.  
   [Martin Redington](https://github.com/mildm8nnered)
   [#4767](https://github.com/realm/SwiftLint/issues/4767)
@@ -101,6 +121,11 @@
 * Consider custom attributes in `attributes` rule.  
   [SimplyDanny](https://github.com/SimplyDanny)
   [#4599](https://github.com/realm/SwiftLint/issues/4599)
+
+* Fix whitespaces issue in auto-fix of `redundant_optional_initialization`
+  rule when multiple variable declaration are involved.  
+  [SimplyDanny](https://github.com/SimplyDanny)
+  [#4794](https://github.com/realm/SwiftLint/issues/4794)
 
 * Stop triggering `strict_fileprivate` rule on symbols implementing a protocol
   in the same file.  
@@ -146,6 +171,11 @@
 * Fix false positives in `attributes` rule when using property wrappers
   with keypath arguments.  
   [JP Simard](https://github.com/jpsim)
+
+* Fix for `superfluous_disable_command` not being completely disabled
+  by `disable` commands.  
+  [Martin Redington](https://github.com/mildm8nnered)
+  [#4788](https://github.com/realm/SwiftLint/issues/4788)
 
 ## 0.50.3: Bundle of Towels
 
