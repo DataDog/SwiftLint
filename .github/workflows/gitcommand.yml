@@ -11,7 +11,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Run git command for unshallowing
+    - name: Check if is a shallow repository
+      run: git rev-parse --is-shallow-repository
+    - name: Count if number of returned lines is greater than 1
+      run: git log --format=oneline -n 2
+    - name: Run git command 1 for unshallowing
+      run: git config remote.origin.partialclonefilter "blob:none"
+    - name: Run git command 2 for unshallowing
       run: git fetch --shallow-since="1 month ago" --update-shallow --refetch
     - name: Run git rev-list
       run: git rev-list --objects --no-object-names --filter=blob:none --since="1 month ago" HEAD
