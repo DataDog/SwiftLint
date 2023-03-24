@@ -32,6 +32,6 @@ jobs:
           api_key: ${{ secrets.DD_API_KEY }}
           application_key: ${{ secrets.DD_APPLICATION_KEY }}
           platform: macos
-          libraryVersion: 2.2.4-beta.2
+          libraryVersion: 2.2.6-beta.1
       env: 
           DD_TRACE_DEBUG: 1
