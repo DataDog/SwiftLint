@@ -2,6 +2,24 @@
 
 #### Breaking
 
+* None.
+
+#### Experimental
+
+* None.
+
+#### Enhancements
+
+* None.
+
+#### Bug Fixes
+
+* None.
+
+## 0.51.0: bzllint
+
+#### Breaking
+
 * Deprecate the `unused_capture_list` rule in favor of the Swift compiler
   warning. At the same time, make it an opt-in rule.  
   [Cyberbeni](https://github.com/Cyberbeni)
